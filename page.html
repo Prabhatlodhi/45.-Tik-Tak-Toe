@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="page.css">
+    <script src="pageone.js" defer></script>
+     
+</head>
+<body onload="startGame()">
+    <h1 id="headingtop">Tic Tac Toe</h1>
+    <div id="message" class="text1">Result</div>
+
+    <div class="playerone" >
+      <h2 id="OnePlayer"></h2>
+      <h3>Score :: <span class="playerOneScore"></span></h3>
+    </div>
+
+    <div class="playertwo">
+      <h2 id="TwoPlayer"></h2>
+      <h3>Score :: <span class="playerTwoScore"></span></h3>
+    </div>
+
+
+
+    <table class="shift">
+        <tr>
+            <td id="s1" class="Square br-0 bb-0" onclick="nextMove(this);"></td>
+            <td id="s2" class="Square br-0 bb-0" onclick="nextMove(this);"></td>
+            <td id="s3" class="Square bb-0" onclick="nextMove(this);"></td>
+        </tr>
+        <tr>
+            <td id="s4" class="Square br-0 bb-0" onclick="nextMove(this);"></td>
+            <td id="s5" class="Square br-0 bb-0" onclick="nextMove(this);"></td>
+            <td id="s6" class="Square bb-0" onclick="nextMove(this);"></td>
+        </tr>
+        <tr>
+            <td id="s7" class="Square br-0" onclick="nextMove(this);"></td>
+            <td id="s8" class="Square br-0" onclick="nextMove(this);"></td>
+            <td id="s9" class="Square" onclick="nextMove(this);"></td>
+        </tr>
+    </table>
+
+   
+
+    <button type="button" onclick="startGame()" class="but">Start New Game</button>
+
+    <div class="display_box showElement" ></div>
+
+
+</body>
+</html>
