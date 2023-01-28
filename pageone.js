@@ -1,19 +1,22 @@
+
 const teamBakgrndCOlor = document.querySelector('.teamBg')
 const teamBakgrndCOlorTwo = document.querySelector('.teamBg2')
-
-
-const NameOfPlayerOne = document.querySelector('#OnePlayer')
-NameOfPlayerOne.innerText = localStorage.getItem('playerOneName')
-
-const NameOfPlayerTwo = document.querySelector('#TwoPlayer')
-NameOfPlayerTwo.innerText = localStorage.getItem('playerTwoName')
 
 let firstPlayerName = localStorage.getItem('playerOneName')
 let secondPlayerName = localStorage.getItem('playerTwoName')
 
+const NameOfPlayerOne = document.querySelector('#OnePlayer')
+NameOfPlayerOne.innerText = firstPlayerName;
+
+const NameOfPlayerTwo = document.querySelector('#TwoPlayer')
+NameOfPlayerTwo.innerText = secondPlayerName;
+
+
 
 function startGame()
 {
+    
+
     winner_name.style.display = 'none';
     for (var i = 1; i<= 9; i = i + 1)
     {
@@ -21,15 +24,13 @@ function startGame()
     }
 
     document.turn = "X";
-    setMessage( `${firstPlayerName}  gets to start.`);
+    setMessage( `Team-X gets to start.`);
    
     if (Math.random()< 0.5)
     {
         document.turn = "O";
-        setMessage( `${secondPlayerName}  gets to start.`);
-        
+        setMessage( `Team-O  gets to start.`);
     }
-
 
     document.winner = null;
 
@@ -72,11 +73,13 @@ const pTwoScore = document.querySelector('.playerTwoScore');
 
 pOneScore.innerText = 0
 pTwoScore.innerText = 0
+
+
 let count = 0;
 let num = 0;
 
 
-
+const winElement = document.querySelector('.imageCont')
 
 function switchTurn()
 {
@@ -92,15 +95,36 @@ function switchTurn()
 
        if(document.turn=='X'){
 
-        winner_name.innerHTML = `
-        <h1>Congratulations  ${firstPlayerName} ! You Win!</h1>`
+
+        winElement.classList.remove('hideThis');
+        //read the value
+        // store in local stro
+        //fetch it
+        //display kar
+
+        let updatedName = NameOfPlayerOne.innerText;
+        localStorage.setItem('newName', updatedName);
+        let gygy = localStorage.getItem('newName');
+
+        winnerNameHere.innerHTML = `<h1 class="headingHere">Congratulations  ${gygy} ! You Win!</h1>`
+        // window.location.href = "winnerpage.html"
+
+        // winner_name.innerHTML = `<h1>Congratulations  ${firstPlayerName} ! You Win!</h1>`
        }else{
-        winner_name.innerHTML = `
-        <h1>Congratulations  ${secondPlayerName} ! You Win!</h1>`
+
+        let updatedName2 = NameOfPlayerTwo.innerText;
+        localStorage.setItem('newName2', updatedName2);
+        let huhu = localStorage.getItem('newName2');
+
+
+        winElement.classList.remove('hideThis');
+        winnerNameHere.innerHTML = `<h1 class="headingHere">Congratulations  ${huhu} ! You Win!</h1>`
+        // window.location.href = "winnerpage.html"
+        // winner_name.innerHTML = `<h1>Congratulations  ${secondPlayerName} ! You Win!</h1>`
        }
        
         document.winner = document.turn;
-        winner_name.style.display = 'block';
+        // winner_name.style.display = 'block';
         
         
          
@@ -113,16 +137,24 @@ function switchTurn()
     }
     else if (document.turn == "X")
     {
-        document.turn ="O";
+        NameOfPlayerOne.setAttribute('contenteditable', false)
+        NameOfPlayerTwo.setAttribute('contenteditable', false);
 
-        setMessage(`It's   ${secondPlayerName} 's turn!`);
+        
+
+        document.turn ="O";
+        setMessage(`It's Team-O's turn!`);
         teamBakgrndCOlorTwo.style.backgroundColor = '#B8B8B8';
         teamBakgrndCOlor.style.backgroundColor = 'white';
     }
     else
     {
+        NameOfPlayerOne.setAttribute('contenteditable', false)
+        NameOfPlayerTwo.setAttribute('contenteditable', false);
+
+
         document.turn ="X";
-        setMessage(`It's ${firstPlayerName} 's turn!`);
+        setMessage(`It's Team-X's turn!`);
         teamBakgrndCOlor.style.backgroundColor = '#B8B8B8';
         teamBakgrndCOlorTwo.style.backgroundColor = 'white';
     }
@@ -176,6 +208,67 @@ const freshGame = document.querySelector('.but');
 freshGame.addEventListener('click', newGameStart);
 
 function newGameStart(){
+    NameOfPlayerOne.setAttribute('contenteditable', true);
+    NameOfPlayerTwo.setAttribute('contenteditable', true);
+
+
     teamBakgrndCOlor.style.backgroundColor = 'white';
     teamBakgrndCOlorTwo.style.backgroundColor = 'white';
+}
+
+const rediredtMainPage = document.querySelector('.mainPageBtn');
+
+rediredtMainPage.addEventListener('click', toMainpage);
+
+function toMainpage(){
+    window.location.href = "index.html"
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+const startNewGameBtn = document.querySelector('#startnew');
+const winnerNameHere = document.querySelector('#wrap')
+
+// const NameOfPlayerTwo = document.querySelector('#TwoPlayer')
+// NameOfPlayerTwo.innerText = localStorage.getItem('playerTwoName')
+
+// let firstPlayerName = localStorage.getItem('playerOneName')
+// let secondPlayerName = localStorage.getItem('playerTwoName')
+
+// window.addEventListener("load", (event) => {
+//         winnerNameHere.innerHTML = `<h1 class="headingHere">Congratulations  ${firstPlayerName} ! You Win!</h1>`
+//         // winner_name.innerHTML = `<h1>Congratulations  ${firstPlayerName} ! You Win!</h1>`
+//   });
+
+//   window.addEventListener("load", (event) => {
+//     winnerNameHere.innerHTML = `<h1 class="headingHere">Congratulations  ${secondPlayerName} ! You Win!</h1>`
+//     // winner_name.innerHTML = `<h1>Congratulations  ${secondPlayerName} ! You Win!</h1>`
+// });
+
+
+
+
+
+
+
+startNewGameBtn.addEventListener('click', pageTwo)
+
+function pageTwo(){
+    // window.location.href = "page.html"
+    winElement.classList.add('hideThis');
 }

@@ -11,20 +11,23 @@
 <body onload="startGame()">
     <nav id="headingtop">
         <h1 >Tic Tac Toe</h1>
-        <button type="button" onclick="startGame()" class="but">Start New Game</button>
+        <button type="button" onclick="startGame()" class="but">Clear</button>
+        <button class="mainPageBtn">Main Page</button>
     </nav>
 
     <div id="message" class="text1">Result</div>
 
     <div class="playerone" >
         <h6 class="teamBg" >Team-X</h6>
-      <h2 id="OnePlayer"></h2>
+      <h2 id="OnePlayer" contenteditable="true" ></h2>
+       
       <h3>Score :: <span class="playerOneScore"></span></h3>
     </div>
 
     <div class="playertwo">
         <h6 class="teamBg2">Team-O</h6>
-      <h2 id="TwoPlayer"></h2>
+      <h2 id="TwoPlayer" contenteditable="true"></h2>
+       
       <h3>Score :: <span class="playerTwoScore"></span></h3>
     </div>
 
@@ -55,5 +58,15 @@
     <div class="display_box showElement" ></div>
 
 
+
+    <div class="imageCont hideThis">
+        <div id="wrap">
+            
+        </div>
+        <br>
+        <button id="startnew" class="glow-on-hover" onclick="startGame()">PLAY AGAIN</button> 
+        <!-- <button id="startnew" class="glow-on-hover">START NEW GAME</button>  -->
+    </div>
+    
 </body>
 </html>
