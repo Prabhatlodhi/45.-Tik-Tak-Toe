@@ -3,7 +3,7 @@
     margin: 0px;
     padding: 0px;
     box-sizing: border-box;
-     
+    
 }
 
 .ring{
@@ -12,9 +12,10 @@
 
 #headingtop{
     background-color: rgb(207, 249, 249);
-    height: 50px;
+    height: 70px;
     text-align: center;
-    padding-bottom: 40px;
+    padding-top: 20px;
+    margin-bottom: 20px;
 }
 
 table{
@@ -23,6 +24,10 @@ table{
    padding: 0px;
    margin: 130px auto;
    border-radius: 5%;
+   border-radius: 44px;
+background: #ffffff;
+box-shadow:  17px 17px 39px #a1a1a1,
+             -17px -17px 39px #ffffff;
 }
 
 
@@ -42,8 +47,8 @@ table tr td:hover{
 }
 
 .but{
-    position: absolute;
-     
+   
+    position: relative;
     width: 200px;
     height: 50px;
     background-color: rgb(204, 255, 202);
@@ -52,9 +57,9 @@ table tr td:hover{
     cursor: pointer;
     font-size: 20px;
     font-weight: bold;
-    transform: translate(-50%, -50%);
-    left: 50.1%;
-    top: 91%;
+    /* transform: translate(-50%, -50%); */
+    left: 38.1%;
+    bottom: 80%;
     border: none;
 }
 
@@ -87,6 +92,7 @@ table tr td:hover{
     font-weight: bold;
     color: black;
     font-size: 30px;
+    margin: 10px;
 }
 
 .but:hover{

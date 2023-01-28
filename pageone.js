@@ -1,3 +1,7 @@
+const teamBakgrndCOlor = document.querySelector('.teamBg')
+const teamBakgrndCOlorTwo = document.querySelector('.teamBg2')
+
+
 const NameOfPlayerOne = document.querySelector('#OnePlayer')
 NameOfPlayerOne.innerText = localStorage.getItem('playerOneName')
 
@@ -18,17 +22,16 @@ function startGame()
 
     document.turn = "X";
     setMessage( `${firstPlayerName}  gets to start.`);
+   
     if (Math.random()< 0.5)
     {
         document.turn = "O";
         setMessage( `${secondPlayerName}  gets to start.`);
+        
     }
 
 
     document.winner = null;
-
-
-
 
     document.getElementById("s1").style.color = "#3FC80E ";
     document.getElementById("s2").style.color = "#3FC80E ";
@@ -113,11 +116,15 @@ function switchTurn()
         document.turn ="O";
 
         setMessage(`It's   ${secondPlayerName} 's turn!`);
+        teamBakgrndCOlorTwo.style.backgroundColor = '#B8B8B8';
+        teamBakgrndCOlor.style.backgroundColor = 'white';
     }
     else
     {
         document.turn ="X";
-        setMessage(`It's ${firstPlayerName}  's turn!`);
+        setMessage(`It's ${firstPlayerName} 's turn!`);
+        teamBakgrndCOlor.style.backgroundColor = '#B8B8B8';
+        teamBakgrndCOlorTwo.style.backgroundColor = 'white';
     }
 }
 
@@ -162,3 +169,13 @@ function CheckforTie()
 	}
 return true;
 } 
+
+
+const freshGame = document.querySelector('.but');
+
+freshGame.addEventListener('click', newGameStart);
+
+function newGameStart(){
+    teamBakgrndCOlor.style.backgroundColor = 'white';
+    teamBakgrndCOlorTwo.style.backgroundColor = 'white';
+}
